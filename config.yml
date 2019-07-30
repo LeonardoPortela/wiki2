@@ -30,7 +30,7 @@ db:
   db: d14l7a54l6rc1t
   ssl: true
  # SQLite only:
-  storage: path/to/database.sqlite
+  #storage: path/to/database.sqlite
 
 #######################################################################
 # ADVANCED OPTIONS                                                    #
