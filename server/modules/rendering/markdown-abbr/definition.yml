@@ -1,0 +1,8 @@
+key: markdownAbbr
+title: Abbreviations
+description: Parse abbreviations into abbr tags
+author: requarks.io
+icon: text_format
+enabledDefault: true
+dependsOn: markdownCore
+props: {}

@@ -1,0 +1,60 @@
+doctype html
+html
+  head
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=5')
+    meta(name='theme-color', content='#333333')
+    meta(name='msapplication-TileColor', content='#333333')
+    meta(name='msapplication-TileImage', content='/favicons/ms-icon-144x144.png')
+    title Wiki.js Setup
+
+    //- Favicon
+    each favsize in [57, 60, 72, 76, 114, 120, 144, 152, 180]
+      link(rel='apple-touch-icon', sizes=favsize + 'x' + favsize, href='/favicons/apple-icon-' + favsize + 'x' + favsize + '.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/favicons/android-icon-192x192.png')
+    each favsize in [32, 96, 16]
+      link(rel='icon', type='image/png', sizes=favsize + 'x' + favsize, href='/favicons/favicon-' + favsize + 'x' + favsize + '.png')
+    link(rel='manifest', href='/manifest.json')
+
+    //- Site Lang
+    script.
+      var siteConfig = !{JSON.stringify({ title: config.title })}
+
+    //- CSS
+    
+      
+    link(
+      type='text/css'
+      rel='stylesheet'
+      href='/css/setup.5dc2d426d933cf3dd03b.css'
+      integrity='sha256-pV78xR83aPwqzXY+x3heZWlzDlXOVi5WABpNg4OF4WM= sha512-Dm8gc7VL01wh9psotD3YRixIZdpJA4moL70rWFXrHRyacmimlBnLRhn+wbwYSEUTV7+r8apqDI8G40rcVWTs9A=='
+      crossorigin='use-credentials'
+    )
+      
+    
+
+    //- JS
+    
+      
+    script(
+      type='text/javascript'
+      src='/js/runtime.4e0c8591a3a5f8351574.js'
+      integrity='sha256-pE5Ct8mbcV+uNISPSfi3QMjLmJGP/VENpi3uVsinXjU= sha512-10fOOs7DNXMjcQeh3eQjQnuoTkO7J6gHaU/i0vUDbC3DW0zjJGAW0n9UwHe/GElMyGcjXD6vu6FVzaK1FGE+xQ=='
+      crossorigin='use-credentials'
+      )
+      
+    
+      
+    script(
+      type='text/javascript'
+      src='/js/setup.5dc2d426d933cf3dd03b.js'
+      integrity='sha256-hnjbjSmcMFms243CHJfMQzAP3QKORVIbZsibLgzj7tY= sha512-9xQ+FkmDhaexbv1MVbKEHbnQ23s4o/44z/tJKr3DD06ioXtkuFgPY1CCISfLaBxj8MKssANH2iOALIZmYE2+WA=='
+      crossorigin='use-credentials'
+      )
+      
+    
+
+  body
+    #root
+      setup(telemetry-id=telemetryClientID, wiki-version=packageObj.version)

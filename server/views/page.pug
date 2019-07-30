@@ -1,0 +1,41 @@
+extends master.pug
+
+block head
+  if injectCode.css
+    style(type='text/css')!= injectCode.css
+  if injectCode.head
+    != injectCode.head
+
+block body
+  #root
+    page(
+      locale=page.localeCode
+      path=page.path
+      title=page.title
+      description=page.description
+      tags=page.tags
+      created-at=page.createdAt
+      updated-at=page.updatedAt
+      author-name=page.authorName
+      :author-id=page.authorId
+      :is-published=page.isPublished.toString()
+      :toc=page.toc
+      :page-id=page.id
+      )
+      template(slot='sidebar')
+        each navItem in sidebar
+          if navItem.kind === 'link'
+            v-list-tile(
+              href=navItem.target
+              )
+              v-list-tile-avatar
+                v-icon= navItem.icon
+              v-list-tile-title= navItem.label
+          else if navItem.kind === 'divider'
+            v-divider.my-2
+          else if navItem.kind === 'header'
+            v-subheader.pl-4= navItem.label
+      template(slot='contents')
+        div(v-pre)!= page.render
+  if injectCode.body
+    != injectCode.body

@@ -1,0 +1,96 @@
+doctype html
+html
+  head
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=5')
+    meta(name='theme-color', content='#333333')
+    meta(name='msapplication-TileColor', content='#333333')
+    meta(name='msapplication-TileImage', content='/favicons/ms-icon-144x144.png')
+
+    title= pageMeta.title + ' | ' + config.title
+
+    //- SEO / OpenGraph
+    meta(name='description', content=pageMeta.description)
+    meta(property='og:title', content=pageMeta.title)
+    meta(property='og:type', content='website')
+    meta(property='og:description', content=pageMeta.description)
+    meta(property='og:image', content=pageMeta.image)
+    meta(property='og:url', content=pageMeta.url)
+    meta(property='og:site_name', content=config.title)
+
+    //- Favicon
+    each favsize in [57, 60, 72, 76, 114, 120, 144, 152, 180]
+      link(rel='apple-touch-icon', sizes=favsize + 'x' + favsize, href='/favicons/apple-icon-' + favsize + 'x' + favsize + '.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/favicons/android-icon-192x192.png')
+    each favsize in [32, 96, 16]
+      link(rel='icon', type='image/png', sizes=favsize + 'x' + favsize, href='/favicons/favicon-' + favsize + 'x' + favsize + '.png')
+    link(rel='manifest', href='/manifest.json')
+
+    //- Icon Set
+    if config.theming.iconset === 'mdi'
+      link(
+        type='text/css'
+        rel='stylesheet'
+        href='https://cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css'
+        )
+    else if config.theming.iconset === 'fa'
+      link(
+        type='text/css'
+        rel='stylesheet'
+        href='https://use.fontawesome.com/releases/v5.9.0/css/all.css'
+        )
+    else if config.theming.iconset === 'fa4'
+      link(
+        type='text/css'
+        rel='stylesheet'
+        href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'
+        )
+
+    //- CSS
+    
+      
+    link(
+      type='text/css'
+      rel='stylesheet'
+      href='/css/legacy.cb63edd0f8efd449d189.css'
+      integrity='sha256-jO+F+nMZxiOE1fvp4cpbzw0gCsNiBJ+mT1YBUcBmNFI= sha512-/VkNcytjUlSpLD2lPHHoJvywGpAIx56KqD6BFgV8FwmqcVt+U9h59czppjm2tJCPlQm7hBRgiRTIeXStGhbO5w=='
+      crossorigin='use-credentials'
+    )
+      
+    
+
+    script(
+      crossorigin='anonymous'
+      src='https://polyfill.io/v3/polyfill.min.js?features=EventSource'
+    )
+
+    //- JS
+    
+      
+    script(
+      type='text/javascript'
+      src='/js/runtime.4e0c8591a3a5f8351574.js'
+      integrity='sha256-pE5Ct8mbcV+uNISPSfi3QMjLmJGP/VENpi3uVsinXjU= sha512-10fOOs7DNXMjcQeh3eQjQnuoTkO7J6gHaU/i0vUDbC3DW0zjJGAW0n9UwHe/GElMyGcjXD6vu6FVzaK1FGE+xQ=='
+      crossorigin='use-credentials'
+      )
+      
+    
+      
+    script(
+      type='text/javascript'
+      src='/js/legacy.cb63edd0f8efd449d189.js'
+      integrity='sha256-minvHIqJR6yxGkRZidZjtbV9lsRe4bEWk3u5LzuF+ZI= sha512-FRbHrF+2/nkbAMwkyWY9cF/pxuHTeTSJLu3yW0OM1bCuRwE4JGHSk7zO4bYfS1E1IlUH/arcCHIzlxGVz7FzhA=='
+      crossorigin='use-credentials'
+      )
+      
+    
+
+    != analyticsCode.head
+
+    block head
+
+  body
+    != analyticsCode.bodyStart
+    block body
+    != analyticsCode.bodyEnd

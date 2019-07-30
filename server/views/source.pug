@@ -1,0 +1,11 @@
+extends master.pug
+
+block head
+
+block body
+  #root
+    page-source(
+      :page-id=page.id
+      locale=page.localeCode
+      path=page.path
+      )= page.content

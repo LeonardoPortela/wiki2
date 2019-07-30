@@ -1,0 +1,95 @@
+doctype html
+html
+  head
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=5')
+    meta(name='theme-color', content='#333333')
+    meta(name='msapplication-TileColor', content='#333333')
+    meta(name='msapplication-TileImage', content='/favicons/ms-icon-144x144.png')
+
+    title= pageMeta.title + ' | ' + config.title
+
+    //- SEO / OpenGraph
+    meta(name='description', content=pageMeta.description)
+    meta(property='og:title', content=pageMeta.title)
+    meta(property='og:type', content='website')
+    meta(property='og:description', content=pageMeta.description)
+    meta(property='og:image', content=pageMeta.image)
+    meta(property='og:url', content=pageMeta.url)
+    meta(property='og:site_name', content=config.title)
+
+    //- Favicon
+    each favsize in [57, 60, 72, 76, 114, 120, 144, 152, 180]
+      link(rel='apple-touch-icon', sizes=favsize + 'x' + favsize, href='/favicons/apple-icon-' + favsize + 'x' + favsize + '.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/favicons/android-icon-192x192.png')
+    each favsize in [32, 96, 16]
+      link(rel='icon', type='image/png', sizes=favsize + 'x' + favsize, href='/favicons/favicon-' + favsize + 'x' + favsize + '.png')
+    link(rel='manifest', href='/manifest.json')
+
+    //- Site Properties
+    script.
+      var siteConfig = !{JSON.stringify(siteConfig)}; var siteLangs = !{JSON.stringify(langs)}
+
+    //- Icon Set
+    if config.theming.iconset === 'mdi'
+      link(
+        type='text/css'
+        rel='stylesheet'
+        href='https://cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css'
+        )
+    else if config.theming.iconset === 'fa'
+      link(
+        type='text/css'
+        rel='stylesheet'
+        href='https://use.fontawesome.com/releases/v5.9.0/css/all.css'
+        )
+    else if config.theming.iconset === 'fa4'
+      link(
+        type='text/css'
+        rel='stylesheet'
+        href='https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css'
+        )
+
+    //- CSS
+    
+      
+    link(
+      type='text/css'
+      rel='stylesheet'
+      href='/css/app.3f0ec7bfc994316d5963.css'
+      integrity='sha256-NJPHujU0dwj8P7yOmKM+gD0YKyJIXlhA1J3AOPm/yZE= sha512-YqrBGq6Lb2dNXRkUANwErRFW9nAPl145wnX5mlsgQhjXByfTH6lPzF+vpOTk96oYEVEg2fpPE4NycPR0PakSGw=='
+      crossorigin='use-credentials'
+    )
+      
+    
+
+    //- JS
+    
+      
+    script(
+      type='text/javascript'
+      src='/js/runtime.4e0c8591a3a5f8351574.js'
+      integrity='sha256-pE5Ct8mbcV+uNISPSfi3QMjLmJGP/VENpi3uVsinXjU= sha512-10fOOs7DNXMjcQeh3eQjQnuoTkO7J6gHaU/i0vUDbC3DW0zjJGAW0n9UwHe/GElMyGcjXD6vu6FVzaK1FGE+xQ=='
+      crossorigin='use-credentials'
+      )
+      
+    
+      
+    script(
+      type='text/javascript'
+      src='/js/app.3f0ec7bfc994316d5963.js'
+      integrity='sha256-QJQSNX+QKUxwe0tu2f5Z8ZbaragB0PVRNXx6tbumV4k= sha512-E717fHxwDo4cK6+qIvuxzepp8cbKryrZ/HZ59DUGKBG8ULgY1R4v059TADN48otBS6TYF4epKW7IQdAetL9dLg=='
+      crossorigin='use-credentials'
+      )
+      
+    
+
+    != analyticsCode.head
+
+    block head
+
+  body
+    != analyticsCode.bodyStart
+    block body
+    != analyticsCode.bodyEnd

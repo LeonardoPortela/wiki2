@@ -1,0 +1,8 @@
+key: markdownEmoji
+title: Emoji
+description: Convert tags to emojis
+author: requarks.io
+icon: tag_faces
+enabledDefault: true
+dependsOn: markdownCore
+props: {}

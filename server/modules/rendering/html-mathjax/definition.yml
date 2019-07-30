@@ -1,0 +1,8 @@
+key: htmlMathjax
+title: Mathjax Processor
+description: TeX/MathML Math Equations Parser
+author: requarks.io
+icon: functions
+enabledDefault: false
+dependsOn: htmlCore
+props: {}

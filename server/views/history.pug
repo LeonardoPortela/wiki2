@@ -1,0 +1,12 @@
+extends master.pug
+
+block head
+
+block body
+  #root
+    history(
+      :page-id=page.id
+      locale=page.localeCode
+      path=page.path
+      live-content=page.content
+      )

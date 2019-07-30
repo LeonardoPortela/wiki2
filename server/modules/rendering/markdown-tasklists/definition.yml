@@ -1,0 +1,8 @@
+key: markdownTasklists
+title: Task Lists
+description: Parse task lists to checkboxes
+author: requarks.io
+icon: list
+enabledDefault: true
+dependsOn: markdownCore
+props: {}

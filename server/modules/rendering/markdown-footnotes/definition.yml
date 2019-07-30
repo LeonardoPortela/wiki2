@@ -1,0 +1,8 @@
+key: markdownFootnotes
+title: Footnotes
+description: Parse footnotes references
+author: requarks.io
+icon: low_priority
+enabledDefault: true
+dependsOn: markdownCore
+props: {}

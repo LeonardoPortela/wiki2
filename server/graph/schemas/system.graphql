@@ -1,0 +1,72 @@
+# ===============================================
+# SYSTEM
+# ===============================================
+
+extend type Query {
+  system: SystemQuery
+}
+
+extend type Mutation {
+  system: SystemMutation
+}
+
+# -----------------------------------------------
+# QUERIES
+# -----------------------------------------------
+
+type SystemQuery {
+  flags: [SystemFlag] @auth(requires: ["manage:system"])
+  info: SystemInfo
+}
+
+# -----------------------------------------------
+# MUTATIONS
+# -----------------------------------------------
+
+type SystemMutation {
+  updateFlags(
+    flags: [SystemFlagInput]!
+  ): DefaultResponse @auth(requires: ["manage:system"])
+
+  resetTelemetryClientId: DefaultResponse @auth(requires: ["manage:system"])
+
+  setTelemetry(
+    enabled: Boolean!
+  ): DefaultResponse @auth(requires: ["manage:system"])
+}
+
+# -----------------------------------------------
+# TYPES
+# -----------------------------------------------
+
+type SystemFlag {
+  key: String!
+  value: Boolean!
+}
+
+input SystemFlagInput {
+  key: String!
+  value: Boolean!
+}
+
+type SystemInfo {
+  configFile: String @auth(requires: ["manage:system"])
+  cpuCores: Int @auth(requires: ["manage:system"])
+  currentVersion: String @auth(requires: ["manage:system"])
+  dbHost: String @auth(requires: ["manage:system"])
+  dbType: String @auth(requires: ["manage:system"])
+  dbVersion: String @auth(requires: ["manage:system"])
+  groupsTotal: Int @auth(requires: ["manage:system", "manage:navigation", "manage:groups", "write:groups", "manage:users", "write:users"])
+  hostname: String @auth(requires: ["manage:system"])
+  latestVersion: String @auth(requires: ["manage:system"])
+  latestVersionReleaseDate: Date @auth(requires: ["manage:system"])
+  nodeVersion: String @auth(requires: ["manage:system"])
+  operatingSystem: String @auth(requires: ["manage:system"])
+  pagesTotal: Int @auth(requires: ["manage:system", "manage:navigation", "manage:pages", "delete:pages"])
+  platform: String @auth(requires: ["manage:system"])
+  ramTotal: String @auth(requires: ["manage:system"])
+  telemetry: Boolean @auth(requires: ["manage:system"])
+  telemetryClientId: String @auth(requires: ["manage:system"])
+  usersTotal: Int @auth(requires: ["manage:system", "manage:navigation", "manage:groups", "write:groups", "manage:users", "write:users"])
+  workingDirectory: String @auth(requires: ["manage:system"])
+}

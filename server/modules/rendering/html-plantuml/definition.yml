@@ -1,0 +1,8 @@
+key: htmlPlantuml
+title: PlantUML
+description: Generate diagrams from PlantUML syntax
+author: requarks.io
+icon: multiline_chart
+enabledDefault: false
+dependsOn: htmlCore
+props: {}
