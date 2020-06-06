@@ -38,7 +38,7 @@
     "@bugsnag/js": "6.3.2",
     "algoliasearch": "3.33.0",
     "apollo-fetch": "0.7.0",
-    "apollo-server": "2.6.9",
+    "apollo-server": "2.14.2",
     "apollo-server-express": "2.6.9",
     "auto-load": "3.0.4",
     "aws-sdk": "2.493.0",
